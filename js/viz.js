@@ -1,27 +1,9 @@
 var mode="exploration";
 var codetraceColor = 'white';
-
-//codetrace highlight
-function highlightLine(lineNumbers) {  /* lineNumbers can be an array or a single number. Yay overloading! */
-	$('#codetrace p').css('background-color', colourTheThird).css('color',codetraceColor);
-	if (lineNumbers instanceof Array) {
-		for(var i=0; i<lineNumbers.length; i++) {
-			if(lineNumbers[i] != 0) {
-				$('#code'+lineNumbers[i]).css('background-color', 'black').css('color','white');
-			}
-		}
-	} else {
-		$('#code'+lineNumbers).css('background-color', 'black').css('color','white');
-	}
-}
-
 var isPlaying = false;
-//Opening and closing panels
 var isActionsOpen = true;
 var isStatusOpen = false;
 var isCodetraceOpen = false;
-
-//vars actionsWidth and statusCodetraceWidth must be defined in the specific vizname_actions.js file
 function showActionsPanel() {
 	if(!isActionsOpen) {
 		$('#actions-hide img').removeClass('rotateLeft').addClass('rotateRight');
@@ -83,7 +65,6 @@ function triggerRightPanels() {
 	showStatusPanel();
 	showCodetracePanel();
 }
-
 $( document ).ready(function() {
 	var actionsHeight = ($('#actions p').length)*27 + 10;
 	$('#actions').css('height', actionsHeight);
@@ -95,13 +76,6 @@ $( document ).ready(function() {
 	
 	$('#current-action').hide();
 	$('#actions-hide img').addClass('rotateRight');
-	
-	//surpriseColour stuff
-	$('.tutorial-next').css("background-color", surpriseColour);
-	if(surpriseColour == "#fec515" || surpriseColour == '#a7d41e') {
-		$('.tutorial-next').css("color", "black");
-		$('.tutorial-next img').attr("src", "img/arrow_black_right.png");
-	}
 	$('#progress-bar .ui-slider-range').css("background-color", surpriseColour);
 	
 	$('#actions').css("background-color", colourTheSecond);
@@ -129,73 +103,6 @@ $( document ).ready(function() {
 		$('#status').css('color', 'black');
 		$('#status-hide img').attr('src', 'img/arrow_black_right.png');
 	}
-
-	//title
-	$('#title a').click(function() {
-		$('#title a').removeClass('selected-viz');
-		$(this).addClass('selected-viz');
-	});
-	
-	//mmode menu
-	$('#mode-button').click(function() {
-		$('#other-modes').toggle();
-	});
-	$('#mode-menu').hover(function() {
-		$('#other-modes').toggle();
-	});
-	
-	$('#mode-menu a').hover(function() {
-		$(this).css("background", surpriseColour);
-	}, function() {
-		$(this).css("background", "black");
-	});
-	
-	$('#mode-menu a').click(function() {
-		var currentMode = $('#mode-button').html().split("<")[0];
-		var newMode = $(this).html();
-		
-		$(this).html(currentMode);
-		$('#mode-button').html(newMode + '<img src="img/arrow_white.png"/>');
-		
-		if(newMode=="Exploration Mode") {
-			mode = "exploration";
-			$('#status-hide').show();
-			$('#codetrace-hide').show();
-			$('#actions-hide').show();
-			$('#status').show();
-			$('#codetrace').show();
-			$('#actions').show();
-			$('.tutorial-dialog').hide();
-			hideStatusPanel();
-			hideCodetracePanel();
-			showActionsPanel();
-		/*} else if(newMode=="Training Mode") {
-			mode = "training";
-			$('#status').hide();
-			$('#codetrace').hide();
-			$('#actions').hide();
-			$('#status-hide').hide();
-			$('#codetrace-hide').hide();
-			$('#actions-hide').hide();
-			*/
-		} else if (newMode=="Tutorial Mode") {
-			mode = "tutorial";
-			$('#status-hide').show();
-			$('#codetrace-hide').show();
-			$('#actions-hide').show();
-			$('#current-action').html("");
-			$('#status').show();
-			$('#codetrace').show();
-			$('#actions').show();
-			if(isPlaying) {	stop(); }
-			hideEntireActionsPanel();
-			hideStatusPanel();
-			hideCodetracePanel();
-			$('.tutorial-dialog').first().fadeIn(500);
-		}
-	});
-	
-	//arrow buttons to show/hide panels	
 	$('#status-hide').click(function() {
 		if(isStatusOpen) {
 			hideStatusPanel();
@@ -212,20 +119,9 @@ $( document ).ready(function() {
 	});
 	$('#actions-hide').click(function() {
 		if(isActionsOpen) {
-			hideEntireActionsPanel(); //must define hideEntireActionsPanel() function in vizname_actions.js file
+			hideEntireActionsPanel(); 
 		} else {
 			showActionsPanel();
 		}
 	});
-	
-	//tutorial mode
-	$('.tutorial-dialog .tutorial-next').click(function() {
-		var vizname = $(this).parent().attr('id').split('-')[0];
-		var nextNo = parseInt($(this).parent().attr('id').slice(-1))+1;
-		var nextId = vizname+'-tutorial-'+nextNo;
-		$(this).parent().fadeOut(500, function() {
-			$('#'+nextId).fadeIn(500);
-		});
-	});
-	
 });

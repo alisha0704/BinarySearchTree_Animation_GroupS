@@ -1,10 +1,3 @@
-/* 
- * Variables that SHOULD NOT be modified once initialized
- * These variables can be defined without the HTML elements,
- * and SHOULD be defined before calling any of the visualization scripts
- * Make sure you know what you're doing before modifying this file
- */
-
 const OBJ_HIDDEN = -1;
 
 const VERTEX_SHAPE_CIRCLE = "circle";

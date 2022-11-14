@@ -1,16 +1,3 @@
-// Defines ONE edge object
-// Direction of edge is a -> b
-// Set styles in properties.js and the CSS files!!!
-
-/*
- * Constants for "type":
- * EDGE_TYPE_UDE = UnDirected Edge
- * EDGE_TYPE_DE = Directed Edge
- * EDGE_TYPE_BDE = BiDirectional Edge
- */
-
-// Marker objects
-
 markerSvg.append("marker")
           .attr("id", "arrow")
           .attr("viewBox", "0 -5 10 10")
@@ -135,35 +122,27 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
   /*
   this.defaultEdge = function(){
     var key;
-
     for(key in graphEdgeProperties["path"]["default"]){
       attributeList["path"][key] = graphEdgeProperties["path"]["default"][key];
     }
-
     for(key in graphEdgeProperties["weight"]["default"]){
       attributeList["weight"][key] = graphEdgeProperties["weight"]["default"][key];
     }
   }
-
   this.highlightEdge = function(){
     var key;
-
     for(key in graphEdgeProperties["path"]["highlighted"]){
       attributeList["path"][key] = graphEdgeProperties["path"]["highlighted"][key];
     }
-
      for(key in graphEdgeProperties["weight"]["highlighted"]){
       attributeList["weight"][key] = graphEdgeProperties["weight"]["highlighted"][key];
     }
   }
-
   this.traversedEdge = function(){
     var key;
-
     for(key in graphEdgeProperties["path"]["traversed"]){
       attributeList["path"][key] = graphEdgeProperties["path"]["traversed"][key];
     }
-
      for(key in graphEdgeProperties["weight"]["traversed"]){
       attributeList["weight"][key] = graphEdgeProperties["weight"]["traversed"][key];
     }

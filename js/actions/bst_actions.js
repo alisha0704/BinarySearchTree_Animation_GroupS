@@ -1,11 +1,8 @@
-//actions panel stuff
 var actionsWidth = 150;
 var statusCodetraceWidth = 420;
-
 var isSearchOpen = false;
 var isInsertOpen = false;
 var isRemoveOpen = false;
-
 function openSearch() {
 	if(!isSearchOpen) {
 		$('#find-min').animate({
@@ -105,8 +102,6 @@ function hideEntireActionsPanel() {
 }
 
 $( document ).ready(function() {
-	
-	//the actions with pullout inputs
 	$('#search').click(function() {
 		closeInsert();
 		closeRemove();
@@ -125,29 +120,9 @@ $( document ).ready(function() {
 		openRemove();
 		$('#inorder-err').html("");
 	});
-	
-	//and the others
 	$('#inorder').click(function() {
 		closeSearch();
 		closeInsert();
 		closeRemove();
-	});
-	
-	//tutorial mode
-	$('#bst-tutorial-2 .tutorial-next').click(function() {
-		showActionsPanel();
-	});
-	$('#bst-tutorial-3 .tutorial-next').click(function() {
-		hideEntireActionsPanel();
-	});
-	$('#bst-tutorial-4 .tutorial-next').click(function() {
-		showStatusPanel();
-	});
-	$('#bst-tutorial-5 .tutorial-next').click(function() {
-		hideStatusPanel();
-		showCodetracePanel();
-	});
-	$('#bst-tutorial-6 .tutorial-next').click(function() {
-		hideCodetracePanel();
 	});
 });

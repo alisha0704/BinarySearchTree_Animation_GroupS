@@ -1,12 +1,3 @@
-/*
- * Contains visualization properties (SVG objects size, color, etc.)
- * Make sure to add the corresponding constants to the constant.js file
- */
-
-/*
- * Widget
- */
-
 const MAIN_SVG_WIDTH = 900;
 const MAIN_SVG_HEIGHT = 500;
 const PSEUDOCODE_SVG_WIDTH = 300;

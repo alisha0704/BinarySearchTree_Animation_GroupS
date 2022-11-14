@@ -1,92 +1,29 @@
 @charset "utf-8";
-
 h1 {
 	text-align: center;	
-	font-family: 'SilkscreenNormal';
-	font-size: 36px;
+	font-family: 'Rubik Bubbles', cursive;
+	font-size: 38px;
 	margin-top: 50px;
+	font-weight: bold;
 }
-h2 {
-	text-align: center;
-	font-style: italic;
-	margin-bottom: 30px;
-	font-size: 15px;
+#list {
+width: 100%; 
+position: center;
+align-content: center;
 }
-#searchbar { text-align: center; }
-	#search {
-		width: 250px;
-		padding: 7px 10px;
-		box-shadow: 0px 0px 3px #929292 inset;
-		background: white;
-		color: #888888;
-		font-size: 14px;
-	}
-	#show-filters {
-		cursor: pointer;
-		color: white;
-		padding: 7px 11px 6px;
-		margin-left: -1px;
-		display: inline-block;
-	}
-		#show-filters img { display: inline-block; vertical-align: 2px; }
-	#active-tags { text-align: center; margin-left: -10px; }
-		.active-tag {
-			display: inline-block;
-			position: relative;
-			background: #aaaaaa;
-			color: white;
-			padding: 4px 34px 4px 8px;
-			margin-top: 20px;
-			margin-left: 10px;
-			font-size: 14px;
-		}
-			.active-tag img { /*the cross*/
-				background: #444444;
-				display: inline-block;
-				padding: 8px;
-				position: absolute;
-				top: 0px;
-				right: 0px;
-				cursor: pointer;
-			}
-			.rotateRight {
-				transform: rotate(180deg);
-				-ms-transform: rotate(180deg); /* IE 9 */
-				-webkit-transform: rotate(180deg); /* Safari and Chrome */
-				-o-transform: rotate(180deg); /* Opera */
-				-moz-transform: rotate(180deg); /* Firefox */
-				
-				/* if you want to do this move with animate use transition */
-				transition: .5s;
-				-moz-transition: .5s; /* Firefox 4 */
-				-webkit-transition: .5s; /* Safari and Chrome */
-				-o-transition: .5s; /* Opera */	
-			}
-	
-.line { height: 1px; background: #cccccc; margin: 0px 30px;}
-#emptySearchMsg { text-align: center; font-size: 15px; margin-top: 20px; }
-#filters { padding: 20px 60px 12px 22px; overflow: auto; }
-	.filter {
-		color: white;
-		padding: 3px 8px;
-		margin: 0px 0px 8px 8px;
-		cursor: pointer;
-		border-radius: 2px;
-		float: left;
-	}
-
-#list { width: 100%; }
 #list li {
-	display: block;
-	float: left;
+	display: flex;
+	position: center;
+	align-content: center;
 	width: 100%;
 }
 	#list li .li-wrapper {
 		background: white;
+		position: center;
 		padding-top: 10px;
 		padding-right: 10px;
 		padding-bottom: 10px;
-		margin-left: 20px;	
+		margin-left: 60px;	
 		margin-bottom: 20px;
 		box-shadow: 0px 0px 3px #dddddd;
 	}
@@ -102,7 +39,7 @@ h2 {
 		#list li a.thumbnail .overlay {
 			width: 100%;
 			height: 100%;
-			position: absolute;
+			position: relative;
 			top: 0px;
 			left: 0px;
 			background: rgba(0,0,0,0.7);
@@ -114,35 +51,35 @@ h2 {
 		
 	#list li .info { margin: 0px 0px 0px 10px; }
 		#list li .info h3 {
-			font-size: 14px;
+			font-size: 20px;
 			font-weight: bold;
-			color: #000000;
+			color: #2c043260;
 			margin-bottom: 8px;
 		}
-			#list li .info h3:hover { color: #999999; }
+			#list li .info h3:hover { color: #5f1bf225; }
 		#list li .info .indv-viz-filters { margin-left: -8px; height: 23px; float: none; overflow: hidden; }
 		
-#temp { text-align: center; margin-bottom: 100px; }
+/*#temp { text-align: center; margin-bottom: 100px; }
 	#temp p { font-size: 18px; margin-bottom: 10px; }
-	#temp a { padding: 7px 10px; color: white; font-size: 16px; }
+	#temp a { padding: 7px 10px; color: white; font-size: 16px; }*/
 	
-@media (min-width: 320px) { /* 320-480px */
+@media (min-width: 320px) {
 
 }
 
-@media (min-width: 480px) { /* 480-768px */
+@media (min-width: 480px) {
 h1 { font-size: 50px; }
 .line { margin: 0px 50px; }
 #filters { padding: 20px 60px 12px 42px; }
 #list li { width: 50%; }
 }
 
-@media (min-width: 768px) { /* 768-1024px */
+@media (min-width: 768px) { 
 .line { margin: 0px 60px; }
 #filters { padding: 20px 60px 12px 52px; }
 #list li {	width: 33.333%; }
 }
 
-@media (min-width: 1024px) { /* more than 1024px */
+@media (min-width: 1024px) { 
 #list li {	width: 25%; }
 }

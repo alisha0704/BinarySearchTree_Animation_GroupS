@@ -1,22 +1,3 @@
-// @author  Koh Zi Chun
-// Graph Widget. currently in a mess
-// add keyboard shortcut for animation
-
-// Ivan: Most (if not all) functions will be changed to accomodate new library (D3.js)
-//       Only the algorithm & high-level design will be retained
-
-/* 
- * TODO: Currently animation stuffs (play, pause, etc.) is tied to GraphWidget,
- *       which means visualizations not related to graphs cannot be animated
- *       Think of a way to separate the functions, preferably to another object
- *       (perhaps to the currently stub Widget.js?)
- *
- * TODO: There's currently GraphDSWidget.js built on top of this file which allows graph drawing
- *       Make graph drawing capabilities one of the backend library to allow visualizations 
- *       requiring drawing capabilities to be built on it
- */
-
-
 var vertexSvg = mainSvg.append("g")
                       .attr("id", "vertex");
 

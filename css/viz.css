@@ -1,77 +1,47 @@
 @charset "utf-8";
 
-html { overflow-y: auto; } /*override common.css*/
-
-/*top-bar right*/
-#mode-menu {
-	z-index: 1001;
-	float: right;
-	background: black;
-	font-size: 14px;
-	width: 160px;
-	position: relative;
-}
-	#mode-button { cursor: pointer; padding: 11px 15px; }
-		#mode-button img { /*down arrow*/
-			position: absolute;
-			top: 18px;
-			right: 15px;
-			display: inline-block;
-		}
-	#other-modes {
-		position: absolute;
-		width: 160px;
-		background: black;
-		display: none;
-	}
-	#other-modes a {
-		display: block;
-		padding: 8px 15px;
-	}
-
+html { overflow-y: auto; } 
 #left-bar {
 	position: fixed;
 	top: 0px;
 	left: 0px;
 	height: 100%;
-	width: 40px;
+	width: 50px;
 	background: black;
 	z-index: -1;
 }
-
 #right-bar {
 	position: fixed;
 	top: 0px;
 	right: 0px;
 	height: 100%;
-	width: 40px;
+	width: 50px;
 	background: black;
 	z-index: -2;
 }
-
-#bottom-bar { /*overwrite common.css*/
+#bottom-bar { 
 	position: fixed;
 	bottom: 0px;
+	height: 50px;
 	box-sizing: border-box;
-	-moz-box-sizing:border-box; /* Firefox */
+	-moz-box-sizing:border-box; 
 	width: 100%;
 }
-
 #speed-control {
 	position: fixed;
-	left: 40px;
-	bottom: 15px;
+	left: 60px;
+	bottom: 17px;
 	color: white;
-	font-size: 11px;
+	font-size: 15px;
 	line-height: 100%;
 }
 	#speed-control .ui-slider {
 		position: relative;
 		display: inline-block;
 		margin: 0px 10px;
-		border-left: 5px solid #777;
-		border-right: 5px solid #777;
-		background-color: #777;
+		border-left: 5px solid rgb(240, 210, 210);
+		border-right: 5px solid rgb(244, 216, 216);
+		background-color: rgb(246, 203, 203);
 		height: 6px;
 		width: 70px;
 	}
@@ -81,17 +51,13 @@ html { overflow-y: auto; } /*override common.css*/
 			border: none;
 			outline: none;
 			background-color: white;
-			height: 6px;
-			width: 10px;
+			height: 8px;
+			width: 13px;
 		}
-
-#media-controls {
-
-}
 	.media-control-button {
 		cursor: pointer;
 		position: fixed;
-		opacity: 0.75;
+		opacity: 0.8;
 	}
 		.media-control-button:hover {
 			opacity: 1.0;
@@ -100,41 +66,41 @@ html { overflow-y: auto; } /*override common.css*/
 			display: inline-block;
 		}
 	#go-to-end {
-		bottom: 10px;
+		bottom: 17px;
 		left: 50%;
-		margin-left: -205px; /*20px space*/
+		margin-left: -205px; 
 	}
 	#next {
-		bottom: 10px;
+		bottom: 17px;
 		left: 50%;
 		margin-left: -237px;
 	}
 	#pause, #play {
-		bottom: 8px;
+		bottom: 14px;
 		left: 50%;
 		margin-left: -273px;
 		opacity: 1.0;
 	}
 	#previous {
-		bottom: 10px;
+		bottom: 17px;
 		left: 50%;
 		margin-left: -305px;
 	}
 	#go-to-beginning {
-		bottom: 10px;
+		bottom: 17px;
 		left: 50%;
 		margin-left: -335px;
 	}
 	#stop {
-		bottom: 10px;
+		bottom: 17px;
 		left: 50%;
 		margin-left: 195px;
 		opacity: 1.0;
 	}
 	#progress-bar.ui-slider {
-		bottom: 17px;
+		bottom: 24px;
 		left: 50%;
-		margin-left: -175px;
+		margin-left: -140px;
 		background-color: #777;
 		height: 6px;
 		width: 350px;
@@ -144,9 +110,9 @@ html { overflow-y: auto; } /*override common.css*/
 			position: absolute;
 			border: none;
 			outline: none;
-			background-color: #fff;
+			background-color: rgb(253, 173, 173);
 			height: 6px;
-			width: 1px;
+			width: 8px;
 		}
 		#progress-bar .ui-slider-range {
 			position: absolute;
@@ -164,7 +130,6 @@ html { overflow-y: auto; } /*override common.css*/
     -o-user-select: none;
     user-select: none;
 }
-
 .execAction { cursor: pointer; }
 	.execAction p:hover { background: black; color: white; }
 
@@ -214,10 +179,10 @@ html { overflow-y: auto; } /*override common.css*/
 		right: 0px;
 		padding: 19px 14px 19px 15px;
 		transform: rotate(180deg);
-		-ms-transform: rotate(180deg); /* IE 9 */
-		-webkit-transform: rotate(180deg); /* Safari and Chrome */
-		-o-transform: rotate(180deg); /* Opera */
-		-moz-transform: rotate(180deg); /* Firefox */
+		-ms-transform: rotate(180deg); 
+		-webkit-transform: rotate(180deg); 
+		-o-transform: rotate(180deg); 
+		-moz-transform: rotate(180deg); 
 	}
 	
 #codetrace {
@@ -233,70 +198,33 @@ html { overflow-y: auto; } /*override common.css*/
 		right: 0px;
 		padding: 88px 14px 88px 15px;
 		transform: rotate(180deg);
-		-ms-transform: rotate(180deg); /* IE 9 */
-		-webkit-transform: rotate(180deg); /* Safari and Chrome */
-		-o-transform: rotate(180deg); /* Opera */
-		-moz-transform: rotate(180deg); /* Firefox */
+		-ms-transform: rotate(180deg); 
+		-webkit-transform: rotate(180deg); 
+		-o-transform: rotate(180deg); 
+		-moz-transform: rotate(180deg); 
 	}
 	
 .rotateRight {
 	transform: rotate(180deg);
-	-ms-transform: rotate(180deg); /* IE 9 */
-	-webkit-transform: rotate(180deg); /* Safari and Chrome */
-	-o-transform: rotate(180deg); /* Opera */
-	-moz-transform: rotate(180deg); /* Firefox */
+	-ms-transform: rotate(180deg); 
+	-webkit-transform: rotate(180deg); 
+	-o-transform: rotate(180deg); 
+	-moz-transform: rotate(180deg); 
 				
-	/* if you want to do this move with animate use transition */
+	
 	transition: .5s;
-	-moz-transition: .5s; /* Firefox 4 */
-	-webkit-transition: .5s; /* Safari and Chrome */
-	-o-transition: .5s; /* Opera */	
+	-moz-transition: .5s; 
+	-webkit-transition: .5s; 
+	-o-transition: .5s; 	
 }
 .rotateLeft {
 	transform: rotate(0deg);
-	-ms-transform: rotate(0deg); /* IE 9 */
-	-webkit-transform: rotate(0deg); /* Safari and Chrome */
-	-o-transform: rotate(0deg); /* Opera */
-	-moz-transform: rotate(0deg); /* Firefox */
-				
-	/* if you want to do this move with animate use transition */
+	-ms-transform: rotate(0deg); 
+	-webkit-transform: rotate(0deg); 
+	-o-transform: rotate(0deg);
+	-moz-transform: rotate(0deg); 
 	transition: .5s;
-	-moz-transition: .5s; /* Firefox 4 */
-	-webkit-transition: .5s; /* Safari and Chrome */
-	-o-transition: .5s; /* Opera */	
+	-moz-transition: .5s; 
+	-webkit-transition: .5s; 
+	-o-transition: .5s; 
 }
-
-/*tutorial stuff*/
-.tutorial-dialog {
-	position: fixed;
-	background: black;
-	color: white;
-	padding: 12px;
-	border-radius: 3px;
-	display: none;
-	line-height: 150%;
-}
-	.tutorial-dialog:before {
-		content: " ";
-		position: absolute;
-		height: 0px;
-		width: 0px;
-		border-style:solid;
-		border-width:10px;
-		border-color: transparent;
-	}
-	.tutorial-next {
-		position: absolute;
-		bottom: -10px;
-		right: -10px;
-		padding: 3px 8px;
-		background: #999;
-		color: white;
-		cursor: pointer;
-		border-radius: 2px;
-	}
-		.tutorial-next img {
-			display: inline-block;
-			height: 9px;
-			margin-left: 8px;
-		}
