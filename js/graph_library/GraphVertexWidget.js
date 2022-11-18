@@ -1,6 +1,6 @@
 var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNumber){
     var self = this;
-    var defaultAnimationDuration = 250; // millisecond
+    var defaultAnimationDuration = 250; 
   
     var innerVertex;
     var outerVertex;
@@ -49,10 +49,7 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
         "text": null
       }
     }
-  
-    // JS object with IDs of all edges connected to this vertex as the key and boolean as the value
-    // Everytime an edge is added, the value is set to true
-    // Everytime an edge is deleted, the value is set to null
+
     var edgeList = {};
   
     init();
@@ -60,9 +57,6 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
     this.redraw = function(duration){
       draw(duration);
     }
-  
-    // Specifies the duration of the animation in milliseconds
-    // If unspecified or illegal value, default duration applies. 
     this.showVertex = function(){
       attributeList["outerVertex"]["r"] = graphVertexProperties["outerVertex"]["r"];
       attributeList["outerVertex"]["width"] = graphVertexProperties["outerVertex"]["width"];
@@ -157,66 +151,12 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
       if(newStrokeWidthOuter == null || isNaN(newStrokeWidthOuter)) return;
       attributeList["outerVertex"]["stroke-width"] = newStrokeWidthOuter;
     }
-  
-    // Removes the vertex (no animation)
-    // If you want animation, hide & redraw the vertex first, then call this function
     this.removeVertex = function(){
       outerVertex.remove();
       innerVertex.remove();
       text.remove();
     }
   
-    // DEPRECATED
-    /*
-    this.highlightVertex = function(){
-      var key;
-      for(key in graphVertexProperties["innerVertex"]["highlighted"]){
-        attributeList["innerVertex"][key] = graphVertexProperties["innerVertex"]["highlighted"][key];
-      }
-      for(key in graphVertexProperties["outerVertex"]["highlighted"]){
-        attributeList["outerVertex"][key] = graphVertexProperties["outerVertex"]["highlighted"][key];
-      }
-      for(key in graphVertexProperties["text"]["highlighted"]){
-        attributeList["text"][key] = graphVertexProperties["text"]["highlighted"][key];
-      }
-    }
-    this.traversedVertex = function(){
-      var key;
-      for(key in graphVertexProperties["innerVertex"]["traversed"]){
-        attributeList["innerVertex"][key] = graphVertexProperties["innerVertex"]["traversed"][key];
-      }
-      for(key in graphVertexProperties["outerVertex"]["traversed"]){
-        attributeList["outerVertex"][key] = graphVertexProperties["outerVertex"]["traversed"][key];
-      }
-      for(key in graphVertexProperties["text"]["traversed"]){
-        attributeList["text"][key] = graphVertexProperties["text"]["traversed"][key];
-      }
-    }
-    this.resultVertex = function(){
-      var key;
-      for(key in graphVertexProperties["innerVertex"]["result"]){
-        attributeList["innerVertex"][key] = graphVertexProperties["innerVertex"]["result"][key];
-      }
-      for(key in graphVertexProperties["outerVertex"]["result"]){
-        attributeList["outerVertex"][key] = graphVertexProperties["outerVertex"]["result"][key];
-      }
-      for(key in graphVertexProperties["text"]["result"]){
-        attributeList["text"][key] = graphVertexProperties["text"]["result"][key];
-      }
-    }
-    this.defaultVertex = function(){
-      var key;
-      for(key in graphVertexProperties["innerVertex"]["default"]){
-        attributeList["innerVertex"][key] = graphVertexProperties["innerVertex"]["default"][key];
-      }
-      for(key in graphVertexProperties["outerVertex"]["default"]){
-        attributeList["outerVertex"][key] = graphVertexProperties["outerVertex"]["default"][key];
-      }
-      for(key in graphVertexProperties["text"]["default"]){
-        attributeList["text"][key] = graphVertexProperties["text"]["default"][key];
-      }
-    }
-    */
   
     this.stateVertex = function(stateName){
       var key;
@@ -262,12 +202,6 @@ var GraphVertexWidget = function(cx, cy, vertexShape, vertexText, vertexClassNum
   
       return reply;
     }
-  
-    // this.connectVertex = function(secondVertex, directed, weight){
-    //   self.addEdge(new GraphEdgeWidget(self,secondVertex,directed,weight));
-    // }
-  
-    // Initialize vertex and draw them, but the object will not be visible due to the radius of the vertex circle set to 0
     function init(){
       var tmp_vertexShape = vertexShape;
       if (vertexShape == "rect_long") tmp_vertexShape = "rect";

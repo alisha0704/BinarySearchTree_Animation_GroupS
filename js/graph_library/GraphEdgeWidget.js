@@ -35,9 +35,6 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
   var weightTextPath;
   var weightTextSpan
 
-  // var vertexA = graphVertexA.getClassNumber();
-  // var vertexB = graphVertexB.getClassNumber();
-
   var edgeGenerator = d3.svg.line()
                         .x(function(d){return d.x;})
                         .y(function(d){return d.y;})
@@ -118,37 +115,6 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
     attributeList["weight"]["font-size"] = 0;
   }
 
-  // DEPRECATED
-  /*
-  this.defaultEdge = function(){
-    var key;
-    for(key in graphEdgeProperties["path"]["default"]){
-      attributeList["path"][key] = graphEdgeProperties["path"]["default"][key];
-    }
-    for(key in graphEdgeProperties["weight"]["default"]){
-      attributeList["weight"][key] = graphEdgeProperties["weight"]["default"][key];
-    }
-  }
-  this.highlightEdge = function(){
-    var key;
-    for(key in graphEdgeProperties["path"]["highlighted"]){
-      attributeList["path"][key] = graphEdgeProperties["path"]["highlighted"][key];
-    }
-     for(key in graphEdgeProperties["weight"]["highlighted"]){
-      attributeList["weight"][key] = graphEdgeProperties["weight"]["highlighted"][key];
-    }
-  }
-  this.traversedEdge = function(){
-    var key;
-    for(key in graphEdgeProperties["path"]["traversed"]){
-      attributeList["path"][key] = graphEdgeProperties["path"]["traversed"][key];
-    }
-     for(key in graphEdgeProperties["weight"]["traversed"]){
-      attributeList["weight"][key] = graphEdgeProperties["weight"]["traversed"][key];
-    }
-  }
-  */
-
   this.stateEdge = function(stateName){
     var key;
 
@@ -160,9 +126,6 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
       attributeList["weight"][key] = graphEdgeProperties["weight"][stateName][key];
     }
   }
-
-  // Removes the edge (no animation)
-  // If you want animation, hide & redraw the edge first, then call this function
   this.removeEdge = function(){
     graphVertexA.removeEdge(self);
     graphVertexB.removeEdge(self);
@@ -187,8 +150,7 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
 
     graphVertexA.removeEdge(self);
     graphVertexA = newGraphVertexA;
-    // vertexA =  graphVertexA.getClassNumber();
-
+  
     updatePath();
 
     lineCommand = edgeGenerator(calculatePath());
@@ -208,8 +170,6 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
 
     graphVertexB.removeEdge(self);
     graphVertexB = newGraphVertexB;
-    // vertexB =  graphVertexB.getClassNumber();
-
     updatePath();
 
     lineCommand = edgeGenerator(calculatePath());
@@ -398,13 +358,9 @@ var GraphEdgeWidget = function(graphVertexA, graphVertexB, edgeIdNumber, type, w
 
     var r_x1 = x1 - baX * abScalingFactor1;
     var r_y1 = y1 - baY * abScalingFactor1
-    //Point p1 = new Point(pointA.x - baX * abScalingFactor1, pointA.y
-    //      - baY * abScalingFactor1);
+   
     var r_x2 = x1 - baX * abScalingFactor2;
     var r_y2 = y1 - baY * abScalingFactor2
-
-    //Point p2 = new Point(pointA.x - baX * abScalingFactor2, pointA.y
-    //       - baY * abScalingFactor2);
     var res = new Array();
     res[0] = r_x1; 
     res[1] = r_y1;
